@@ -1,50 +1,29 @@
 <script setup lang="ts">
-import Button from './components/Button.vue'
-import TopBar from './components/TopBar.vue'
+import { computed, ref } from 'vue';
+import TopBar from './components/generic/TopBar.vue';
+import ReadingView from './components/reading/ReadingView.vue';
+import RunningView from './components/running/RunningView.vue';
 
-function handleFileUpload(event): void {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const csvContent = e.target!.result;
-      processCsvData(csvContent);
-    };
-    reader.readAsText(file); // Read the file as text
-  }
+const routes = {
+  '/reading': ReadingView,
+  '/running': RunningView
 }
 
-function processCsvData(csvContent): void {
-  // This is where you'll parse the CSV content
-  console.log('csvContent: ', csvContent);
-}
+const currentPath = ref(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/']
+})
 </script>
 
 <template>
   <TopBar></TopBar>
-  <div class="title">Upload your CSV to see your stats!</div>
-  <div class="sub-title">(Must be exported from storygraph)</div>
-  <div class="actions">
-    <Button :text="'hello'" />
-  </div>
-  <input type="file" accept=".csv" @change="handleFileUpload" />
+  <div class="title">Welcome!</div>
+  <a href="#/reading">Reading</a> |
+  <a href="#/running">Running</a>
+  <component :is="currentView" />
 </template>
-
-<style lang="css">
-.title {
-  font-size: 28px;
-  color: var(--ev-c-text-1);
-  font-weight: 700;
-  line-height: 32px;
-  text-align: center;
-  margin: 0 10px;
-  padding: 16px 0;
-}
-
-.sub-title {
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--ev-c-text-2);
-  font-weight: 600;
-}
-</style>

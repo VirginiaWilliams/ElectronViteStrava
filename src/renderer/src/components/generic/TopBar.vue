@@ -9,7 +9,7 @@ const props = defineProps({
 </template>
 
 <style lang="css">
-@import '../assets/base.css';
+@import '../../assets/base.css';
 
 .topbar {
   position: absolute;
