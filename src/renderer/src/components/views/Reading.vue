@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from '../generic/Button.vue';
-import TopBar from '../generic/TopBar.vue';
 
 function handleFileUpload(event): void {
   const file = event.target.files[0];
@@ -21,7 +20,6 @@ function processCsvData(csvContent): void {
 </script>
 
 <template>
-  <TopBar></TopBar>
   <div class="title">Upload your CSV to see your stats!</div>
   <div class="sub-title">(Must be exported from storygraph)</div>
   <div class="actions">

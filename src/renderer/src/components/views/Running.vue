@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 
-<template>Hello</template>
+<template>Run</template>
 
 <style lang="css">
 .title {

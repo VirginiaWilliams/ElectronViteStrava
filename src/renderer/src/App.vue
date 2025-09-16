@@ -1,29 +1,31 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import TopBar from './components/generic/TopBar.vue';
-import ReadingView from './components/reading/ReadingView.vue';
-import RunningView from './components/running/RunningView.vue';
+import Reading from './components/views/Reading.vue';
+import Running from './components/views/Running.vue';
+import Home from './components/views/Home.vue';
 
-const routes = {
-  '/reading': ReadingView,
-  '/running': RunningView
+const currentTab = ref('Home')
+
+let tabs = {
+  Reading,
+  Running,
+  Home
 }
 
-const currentPath = ref(window.location.hash);
-
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash
-})
-
-const currentView = computed(() => {
-  return routes[currentPath.value.slice(1) || '/']
-})
+function changeView(tab: string): void {
+  // if (tab == 'Reading') {
+  //   currentTab.value = 'Reading'
+  // } else if (tab == 'Running') {
+  //   currentTab.value = 'Running'
+  // } else {
+  //   currentTab.value = 'Home'
+  // }
+  currentTab.value = tab;
+}
 </script>
 
 <template>
-  <TopBar></TopBar>
-  <div class="title">Welcome!</div>
-  <a href="#/reading">Reading</a> |
-  <a href="#/running">Running</a>
-  <component :is="currentView" />
+  <TopBar @tab-selected="changeView" />
+  <component :is="tabs[currentTab]" class="tab"></component>
 </template>
