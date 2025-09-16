@@ -1,12 +1,10 @@
 <script setup lang="ts">
-// import { RoutesEnum } from '@renderer/enums';
-
+// TODO: Change this to an enum
 let tabs = ['Reading', 'Running', 'Home']
 
 const emit = defineEmits(['tab-selected'])
 
 function onClick(tab: string): void {
-  console.log('tab: ', tab);
   emit('tab-selected', tab);
 }
 </script>

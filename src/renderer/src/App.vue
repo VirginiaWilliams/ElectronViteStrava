@@ -14,13 +14,6 @@ let tabs = {
 }
 
 function changeView(tab: string): void {
-  // if (tab == 'Reading') {
-  //   currentTab.value = 'Reading'
-  // } else if (tab == 'Running') {
-  //   currentTab.value = 'Running'
-  // } else {
-  //   currentTab.value = 'Home'
-  // }
   currentTab.value = tab;
 }
 </script>
