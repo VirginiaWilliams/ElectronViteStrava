@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // TODO: Change this to an enum
-let tabs = ['Reading', 'Running', 'Home']
+let tabs = ['Home', 'Reading', 'Running']
 
 const emit = defineEmits(['tab-selected'])
 
