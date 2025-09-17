@@ -5,10 +5,10 @@ import { Days } from '../../enums';
 const total = ref(0);
 
 function updateTotal(): void {
-  const languageInputs = document.querySelectorAll<HTMLInputElement>(".day-miles");
+  const languageInputs = document.querySelectorAll<HTMLInputElement>('.day-miles')
   let count = 0
 
-  languageInputs.forEach(el => {
+  languageInputs.forEach((el) => {
     count += Number(el.value);
   });
 
@@ -28,7 +28,7 @@ function updateTotal(): void {
         </tr>
         <tr>
           <td v-for="d in Days" :key="d">
-            <input type="number" class="day-miles" @input="updateTotal">
+            <input type="number" class="day-miles" @input="updateTotal" />
           </td>
           <td>{{ total }}</td>
         </tr>
