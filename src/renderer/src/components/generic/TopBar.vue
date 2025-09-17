@@ -27,12 +27,16 @@ function onClick(tab: string): void {
   top: 0;
   width: 100%;
   height: 3rem;
-  background-color: var(--ev-c-gray-1);
+  background-color: var(--ev-c-gray-3);
   display: flex;
   line-height: 3rem;
 }
 
 .tab {
-  margin: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
+}
+
+.tab:hover {
+  background-color: var(--ev-c-gray-1);
 }
 </style>

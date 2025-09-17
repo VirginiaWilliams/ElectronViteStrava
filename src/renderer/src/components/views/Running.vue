@@ -1,23 +1,15 @@
 <script setup lang="ts">
+import WeeklyMileagePlanner from '../running/WeeklyMileagePlanner.vue'
 </script>
 
-<template>Run</template>
+<template>
+  <div class="running-view">
+    <WeeklyMileagePlanner />
+  </div>
+</template>
 
 <style lang="css">
-.title {
-  font-size: 28px;
-  color: var(--ev-c-text-1);
-  font-weight: 700;
-  line-height: 32px;
-  text-align: center;
-  margin: 0 10px;
-  padding: 16px 0;
-}
+.running-view {
+  width: 100%;
 
-.sub-title {
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--ev-c-text-2);
-  font-weight: 600;
-}
-</style>
+}</style>

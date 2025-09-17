@@ -20,5 +20,5 @@ function changeView(tab: string): void {
 
 <template>
   <TopBar @tab-selected="changeView" />
-  <component :is="tabs[currentTab]" class="tab"></component>
+  <component :is="tabs[currentTab]"></component>
 </template>
